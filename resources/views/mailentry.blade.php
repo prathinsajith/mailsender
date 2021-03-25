@@ -1,0 +1,86 @@
+@extends('layouts.appVoyo')
+
+@section('title', 'Mail Entry')
+
+@section('content')
+
+    <div class="card card-custom">
+        <div class="card-body">
+            @if ($message = Session::get('success'))
+                <div class="form-group form-group-last">
+                    <div class="alert alert-custom alert-light-success fade show mb-5" role="alert">
+                        <div class="alert-icon"><i class="flaticon2-check-mark text-success"></i></div>
+                        <div class="alert-text">
+                            <p>{{ $message }}</p>
+                        </div>
+                        <div class="alert-close">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true"><i class="ki ki-close"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        <div class="card-header">
+            <h3 class="card-title">
+                Mail Entry
+            </h3>
+        </div>
+        <!--begin::Form-->
+        <form class="form" action="{{ route('mailSend') }}" method="post" id="submit_form" enctype="multipart/form-data">
+            @csrf <div class="card-body">
+                <div class="form-group ">
+                    <label>Email address <span class="text-danger"></span></label>
+                    <input type="text" name="recipient_email"
+                        class="form-control @error('recipient_email') is-invalid @enderror" placeholder="Enter email" />
+                    @error('recipient_email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label>User Name<span class="text-danger"></span></label>
+                    <input type="text" name="recipient_name"
+                        class="form-control @error('recipient_name') is-invalid @enderror" placeholder="Sender Name" />
+                    @error('recipient_name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label>Title <span class="text-danger"></span></label>
+                    <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
+                        placeholder="Enter email" />
+                    @error('title')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group mb-1">
+                    <label for="exampleTextarea"> Subject</label>
+                    <textarea class="form-control @error('subject') is-invalid @enderror" name="subject"
+                        id="exampleTextarea" rows="6"></textarea>
+                    @error('subject')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary mr-2">Send</button>
+                <button type="reset" class="btn btn-secondary">Cancel</button>
+            </div>
+        </form>
+        <!--end::Form-->
+    </div>
+</div>
+
+@endsection
+
+@section('js_files')
+@endsection
+
+@section('js_custom')
+@endsection
+
+@section('css_files')
+@endsection
+
+@section('css_custom')
+@endsection
