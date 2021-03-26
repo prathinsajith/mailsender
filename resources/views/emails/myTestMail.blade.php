@@ -7,9 +7,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="color-scheme" content="light">
     <meta name="supported-color-schemes" content="light">
-</head>
-
-<body>
     <style>
         @media only screen and (max-width: 600px) {
             .inner-body {
@@ -28,53 +25,114 @@
         }
 
     </style>
-      <table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+</head>
+
+<body>
+
+    <table class="wp-block-table action">
+        <tbody>
+            <tr>
+                <td>
+                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td align="center">
+                                    <table border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    #Hello {{ $details['name'] }},
+                                                    <h1 style="color: rgb(255, 0, 0)">{{ $details['title'] }}</h1>
+                                                    <p style="color: rgb(0, 128, 96)">{{ $details['body'] }}</p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fi0.wp.com%2Fzeevector.com%2Fwp-content%2Fuploads%2FLOGO%2FPaytm-Cashback-Logo-PNG-Tranparent.png%3Ffit%3D526%252C313%26ssl%3D1&imgrefurl=https%3A%2F%2Fzeevector.com%2Fpaytm-cashback-logo-png%2F&tbnid=hmdYH9IvI7cu4M&vet=12ahUKEwjdkoLYqMvvAhU-oEsFHdchCM4QMygQegUIARDcAQ..i&docid=P08jWQ2vN8cnfM&w=526&h=313&q=logo%20paytm&ved=2ahUKEwjdkoLYqMvvAhU-oEsFHdchCM4QMygQegUIARDcAQ"
+                                        width="500px" height="" class="logo" alt="Laravel Logo">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>Thank you</p>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td> © {{ date('Y') }} {{ config('app.name') }}. @lang('All rights
+                    reserved.')</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+    {{-- <table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
         <tr>
             <td align="center">
                 <table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
                         <td class="header">
                             <a href="" style="display: inline-block;">
-                                <img src="https://codesign.com.bd/conversations/content/images/2020/04/bose-logo-5.png" width="100px" height="45px" class="logo" alt="Laravel Logo">
+                                <img src="" width="100px" height="45px" class="logo" alt="Laravel Logo">
                             </a>
                         </td>
                     </tr>
-                         <tr>
-                            <td class="body" width="100%" cellpadding="0" cellspacing="0">
-                                <table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0"
-                                    role="presentation">
-                                    <!-- Body content -->
-                                    <tr>
-                                        <td class="content-cell">
-                                            {{-- {{ Illuminate\Mail\Markdown::parse($slot) }}
-                                            {{ $subcopy ?? '' }} --}}
-                                            <h4 style="color: rgb(162, 0, 255)">#Hello {{ $details['name'] }},</h4>
+                    <tr>
+                        <td class="body" width="100%" cellpadding="0" cellspacing="0">
+                            <table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0"
+                                role="presentation">
+                                <!-- Body content -->
+                                <tr>
+                                    <td class="content-cell">
 
-                                            <h1 style="color: rgb(255, 0, 0)">{{ $details['title'] }}</h1>
-                                            <p style="color: rgb(0, 128, 96)">{{ $details['body'] }}</p>
-                                            <p>Thank you</p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <table class="footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                                    <tr>
-                                        <td class="content-cell" align="center">
-                                            © {{ date('Y') }} {{ config('app.name') }}. @lang('All rights reserved.')
+                                        <h4 style="color: rgb(162, 0, 255)"></h4>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="footer" align="center" width="570" cellpadding="0" cellspacing="0"
+                                role="presentation">
+                                <tr>
+                                    <td class="content-cell" align="center">
 
-                                            {{-- {{ Illuminate\Mail\Markdown::parse($slot) }} --}}
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table> --}}
 </body>
 
 </html>

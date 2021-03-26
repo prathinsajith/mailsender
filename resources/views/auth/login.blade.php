@@ -1,11 +1,9 @@
-
 @extends('auth.layouts.app')
 
 @section('title', 'Sign In')
 
 @section('content')
-<!--begin::Login Sign in form-->
-<div class="login-signin">
+    <!--begin::Login Sign in form-->
     <div class="mb-20">
         <h3>Sign In </h3>
         <p class="opacity-60 font-weight-bold">Enter your details to login to your account:</p>
@@ -38,7 +36,7 @@
                 </label>
             </div>
             @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}"
+                <a href="{{ route('password.request') }}" id="kt_login_forgot"
                     class="text-white font-weight-bold">{{ __('Forgot Your Password?') }}</a>
             @endif
         </div>
@@ -52,6 +50,5 @@
         <span class="opacity-70 mr-4">Don't have an account yet?</span>
         <a href="{{ route('register') }}" class="text-white font-weight-bold">Sign Up</a>
     </div>
-</div>
-<!--end::Login Sign in form-->
+    <!--end::Login Sign in form-->
 @endsection

@@ -168,10 +168,10 @@ License: You must have a valid license purchased only from themeforest(the above
                 validation = FormValidation.formValidation(
                     KTUtil.getById('kt_login_signin_form'), {
                         fields: {
-                            username: {
+                            email: {
                                 validators: {
                                     notEmpty: {
-                                        message: 'Username is required'
+                                        message: 'Email is required'
                                     }
                                 }
                             },
@@ -185,26 +185,56 @@ License: You must have a valid license purchased only from themeforest(the above
                         },
                         plugins: {
                             trigger: new FormValidation.plugins.Trigger(),
-                            // submitButton: new FormValidation.plugins.SubmitButton(),
+                            submitButton: new FormValidation.plugins.SubmitButton(),
                             //defaultSubmit: new FormValidation.plugins.DefaultSubmit(), // Uncomment this line to enable normal button submit after form validation
                             bootstrap: new FormValidation.plugins.Bootstrap()
                         }
                     }
                 );
 
+                // $('#kt_login_signin_submit').on('click', function (e) {
+                //     e.preventDefault();
 
+                //     validation.validate().then(function(status) {
+                //         if (status == 'Valid') {
+                //             swal.fire({
+                //                 text: "All is cool! Now you submit this form",
+                //                 icon: "success",
+                //                 buttonsStyling: false,
+                //                 confirmButtonText: "Ok, got it!",
+                //                 customClass: {
+                // 					confirmButton: "btn font-weight-bold btn-light-primary"
+                // 				}
+                //             }).then(function() {
+                // 				KTUtil.scrollTop();
+                // 			});
+                // 		} else {
+                // 			swal.fire({
+                //                 text: "Sorry, looks like there are some errors detected, please try again.",
+                //                 icon: "error",
+                //                 buttonsStyling: false,
+                //                 confirmButtonText: "Ok, got it!",
+                //                 customClass: {
+                // 					confirmButton: "btn font-weight-bold btn-light-primary"
+                // 				}
+                //             }).then(function() {
+                // 				KTUtil.scrollTop();
+                // 			});
+                // 		}
+                //     });
+                // });
 
-                // Handle forgot button
-                $('#kt_login_forgot').on('click', function(e) {
-                    e.preventDefault();
-                    _showForm('forgot');
-                });
+                // // Handle forgot button
+                // $('#kt_login_forgot').on('click', function (e) {
+                //     e.preventDefault();
+                //     _showForm('forgot');
+                // });
 
-                // Handle signup
-                $('#kt_login_signup').on('click', function(e) {
-                    e.preventDefault();
-                    _showForm('signup');
-                });
+                // // Handle signup
+                // $('#kt_login_signup').on('click', function (e) {
+                //     e.preventDefault();
+                //     _showForm('signup');
+                // });
             }
 
             var _handleSignUpForm = function(e) {
@@ -215,7 +245,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 validation = FormValidation.formValidation(
                     form, {
                         fields: {
-                            fullname: {
+                            name: {
                                 validators: {
                                     notEmpty: {
                                         message: 'Username is required'
@@ -239,7 +269,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     }
                                 }
                             },
-                            cpassword: {
+                            password_confirmation: {
                                 validators: {
                                     notEmpty: {
                                         message: 'The password confirmation is required'
@@ -267,45 +297,45 @@ License: You must have a valid license purchased only from themeforest(the above
                     }
                 );
 
-                $('#kt_login_signup_submit').on('click', function(e) {
-                    e.preventDefault();
+                // $('#kt_login_signup_submit').on('click', function (e) {
+                //     e.preventDefault();
 
-                    validation.validate().then(function(status) {
-                        if (status == 'Valid') {
-                            swal.fire({
-                                text: "All is cool! Now you submit this form",
-                                icon: "success",
-                                buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
-                                customClass: {
-                                    confirmButton: "btn font-weight-bold btn-light-primary"
-                                }
-                            }).then(function() {
-                                KTUtil.scrollTop();
-                            });
-                        } else {
-                            swal.fire({
-                                text: "Sorry, looks like there are some errors detected, please try again.",
-                                icon: "error",
-                                buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
-                                customClass: {
-                                    confirmButton: "btn font-weight-bold btn-light-primary"
-                                }
-                            }).then(function() {
-                                KTUtil.scrollTop();
-                            });
-                        }
-                    });
-                });
+                //     validation.validate().then(function(status) {
+                //         if (status == 'Valid') {
+                //             swal.fire({
+                //                 text: "All is cool! Now you submit this form",
+                //                 icon: "success",
+                //                 buttonsStyling: false,
+                //                 confirmButtonText: "Ok, got it!",
+                //                 customClass: {
+                // 					confirmButton: "btn font-weight-bold btn-light-primary"
+                // 				}
+                //             }).then(function() {
+                // 				KTUtil.scrollTop();
+                // 			});
+                // 		} else {
+                // 			swal.fire({
+                //                 text: "Sorry, looks like there are some errors detected, please try again.",
+                //                 icon: "error",
+                //                 buttonsStyling: false,
+                //                 confirmButtonText: "Ok, got it!",
+                //                 customClass: {
+                // 					confirmButton: "btn font-weight-bold btn-light-primary"
+                // 				}
+                //             }).then(function() {
+                // 				KTUtil.scrollTop();
+                // 			});
+                // 		}
+                //     });
+                // });
 
                 // Handle cancel button
-                $('#kt_login_signup_cancel').on('click', function(e) {
-                    e.preventDefault();
+            //     $('#kt_login_signup_cancel').on('click', function (e) {
+            //         e.preventDefault();
 
-                    _showForm('signin');
-                });
-            }
+            //         _showForm('signin');
+            //     });
+            // }
 
             var _handleForgotForm = function(e) {
                 var validation;
@@ -333,35 +363,35 @@ License: You must have a valid license purchased only from themeforest(the above
                 );
 
                 // Handle submit button
-                $('#kt_login_forgot_submit').on('click', function(e) {
-                    e.preventDefault();
+                // $('#kt_login_forgot_submit').on('click', function (e) {
+                //     e.preventDefault();
 
-                    validation.validate().then(function(status) {
-                        if (status == 'Valid') {
-                            // Submit form
-                            KTUtil.scrollTop();
-                        } else {
-                            swal.fire({
-                                text: "Sorry, looks like there are some errors detected, please try again.",
-                                icon: "error",
-                                buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
-                                customClass: {
-                                    confirmButton: "btn font-weight-bold btn-light-primary"
-                                }
-                            }).then(function() {
-                                KTUtil.scrollTop();
-                            });
-                        }
-                    });
-                });
+                //     validation.validate().then(function(status) {
+                //         if (status == 'Valid') {
+                //             // Submit form
+                //             KTUtil.scrollTop();
+                // 		} else {
+                // 			swal.fire({
+                //                 text: "Sorry, looks like there are some errors detected, please try again.",
+                //                 icon: "error",
+                //                 buttonsStyling: false,
+                //                 confirmButtonText: "Ok, got it!",
+                //                 customClass: {
+                // 					confirmButton: "btn font-weight-bold btn-light-primary"
+                // 				}
+                //             }).then(function() {
+                // 				KTUtil.scrollTop();
+                // 			});
+                // 		}
+                //     });
+                // });
 
                 // Handle cancel button
-                $('#kt_login_forgot_cancel').on('click', function(e) {
-                    e.preventDefault();
+                // $('#kt_login_forgot_cancel').on('click', function (e) {
+                //     e.preventDefault();
 
-                    _showForm('signin');
-                });
+                //     _showForm('signin');
+                // });
             }
 
             // Public Functions
