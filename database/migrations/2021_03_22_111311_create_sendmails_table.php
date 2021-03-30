@@ -17,7 +17,7 @@ class CreateSendmailsTable extends Migration
             $table->id();
             $table->string('sender_id');
             $table->string('recipient_email');
-            $table->string('recipient_name');
+            $table->string('recipient_name')->nullable();
             $table->string('title');
             $table->text('subject');
             $table->timestamps();
