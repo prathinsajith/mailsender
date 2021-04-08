@@ -31,7 +31,6 @@ class HomeController extends Controller
         ];
         $ip = request()->ip();
         $data = geoip($ip);
-
         return view('home', compact('user', 'data'));
     }
 
@@ -43,34 +42,32 @@ class HomeController extends Controller
             'subject' => 'required|max:555',
             'title' => 'required',
         ]);
-
         $data = new Sendmail();
         $data->recipient_name = $request->input('recipient_name');
         $data->sender_id = Auth::id();
         $data_recipient_email = $request->input('recipient_email');
-
-        $email_id=explode(";",$data_recipient_email);
-        $email_count=count($email_id);
-
+        $email_id = explode(";", $data_recipient_email);
+        $email_count = count($email_id);
+        // dd($email_id);
         $details = [
             'name' => $request->input('recipient_name'),
             'title' => $request->input('title'),
             'body' => $request->input('subject')
         ];
-        for($i=0;$i<$email_count;$i++)
-        {
-
+        for ($i = 0; $i < $email_count; $i++) {
             Mail::to($email_id[$i])->send(new \App\Mail\MyTestMail($details));
-
+            // Mail::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
+            //     // dd($user->email_id)
+            //     $m->from('hello@app.com', 'Your Application');
+            //     $m->to($user->email, $user->name)->subject('Your Reminder!');
+            // });
         }
 
         $data->recipient_email = $request->input('recipient_email');
         $data->title = $request->input('title');
         $data->subject = $request->input('subject');
         $data->save();
-
-
-        return response()->json(['success'=>'  successfully']);
+        return response()->json(['success' => '  successfully']);
     }
 
     public function mailEntry()
